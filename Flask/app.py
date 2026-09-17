@@ -10,7 +10,14 @@ import os
 app = Flask(__name__)
 
 # Allow React frontend to communicate with Flask
-CORS(app)
+CORS(
+    app,
+    resources={
+        r"/predict": {
+            "origins": "https://ai-guess-drawing-1.onrender.com"
+        }
+    }
+)
 
 
 # ==============================
